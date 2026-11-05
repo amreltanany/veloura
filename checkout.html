@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>VÈLÔURÁ Checkout</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,500&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="wrap co-nav">
+  <a href="index.html" class="logo">VÈLÔURÁ</a>
+  <div class="secure"><svg class="icon" viewBox="0 0 24 24"><rect x="5" y="10" width="14" height="11" rx="1.5"/><path d="M8 10V7a4 4 0 0 1 8 0v3M12 14v3"/></svg>Secure checkout</div>
+  <a href="create.html" class="back link-u">← &nbsp;Back to your bag</a>
+</header>
+
+<main class="wrap checkout">
+  <form id="co" novalidate>
+    <h1 class="fade">A few details, then something sweet.</h1>
+    <p class="lead">You’re one step closer to cake. No account needed.</p>
+
+    <div class="eyebrow" style="font-size:11px;margin-top:26px">Express checkout</div>
+    <div class="express">
+      <button type="button" style="background:#241E1F;color:#fff">Pay with Apple Pay</button>
+      <button type="button" style="background:#F4DF98;color:var(--plum)">PayPal</button>
+    </div>
+    <div class="or">or pay with card</div>
+
+    <div class="co-h"><h2 style="font-size:21px">01 &nbsp; Your details</h2><span style="font-size:12px">Have an account? &nbsp;<a href="#" class="link-u">Sign in</a></span></div>
+    <label class="field"><span>Email address</span><input class="input" type="email" name="email" required autocomplete="email" placeholder="maya.johnson@example.com"></label>
+    <div class="row2">
+      <label class="field"><span>Full name</span><input class="input" name="name" required autocomplete="name" placeholder="Maya Johnson"></label>
+      <label class="field"><span>Phone number</span><input class="input" type="tel" name="phone" autocomplete="tel" placeholder="(415) 555-0142"></label>
+    </div>
+
+    <div class="co-h"><h2>02 &nbsp; How should it find you?</h2></div>
+    <div class="toggle">
+      <label><input type="radio" name="method" value="delivery" checked>Local delivery · $6</label>
+      <label><input type="radio" name="method" value="pickup">Bakery pickup · Free</label>
+    </div>
+    <div id="address">
+      <label class="field" style="margin-top:23px"><span>Street address</span><input class="input" name="street" autocomplete="street-address" placeholder="123 Valencia Street, Apt 4"></label>
+      <div class="row3">
+        <label class="field"><span>City</span><input class="input" name="city" autocomplete="address-level2" placeholder="San Francisco"></label>
+        <label class="field"><span>State</span><input class="input" name="state" autocomplete="address-level1" placeholder="California"></label>
+        <label class="field"><span>ZIP code</span><input class="input" name="zip" inputmode="numeric" autocomplete="postal-code" placeholder="94110"></label>
+      </div>
+    </div>
+    <div class="when">
+      <div><span class="eyebrow" id="when-label">Delivery date &amp; time</span>
+        <select name="when" aria-label="Date and time">
+          <option>Sun, Nov 8, 2026 &nbsp;·&nbsp; 10am–12pm</option>
+          <option>Sun, Nov 8, 2026 &nbsp;·&nbsp; 2pm–4pm</option>
+          <option>Mon, Nov 9, 2026 &nbsp;·&nbsp; 10am–12pm</option>
+          <option>Mon, Nov 9, 2026 &nbsp;·&nbsp; 2pm–4pm</option>
+        </select>
+      </div>
+      <span style="font-size:12px;font-weight:500">Change &nbsp;⌄</span>
+    </div>
+
+    <div class="co-h"><h2>03 &nbsp; Payment</h2>
+      <span style="display:flex;align-items:center;gap:98px;font-size:12px;font-weight:500">Credit or debit card <svg class="icon" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 10h20"/></svg></span></div>
+    <div class="rowcard">
+      <label class="field"><span>Card number</span><input class="input" name="card" inputmode="numeric" autocomplete="cc-number" placeholder="1234  5678  9012  3456"></label>
+      <label class="field"><span>Expiry date</span><input class="input" name="exp" autocomplete="cc-exp" placeholder="MM / YY"></label>
+      <label class="field"><span>Security code</span><input class="input" name="cvc" inputmode="numeric" autocomplete="cc-csc" placeholder="CVC"></label>
+    </div>
+    <label class="check"><input type="checkbox" checked> Billing address is the same as delivery</label>
+    <button class="btn btn-dark btn-block" style="height:54px" id="place">Place order · $69.12 &nbsp;→</button>
+  </form>
+
+  <aside>
+    <div class="summary">
+      <h2>A little happiness, on its way.</h2>
+      <div class="sum-head"><span class="eyebrow" id="count-label">Your order · 1 item</span><a href="create.html" class="link-u" style="font-weight:400">Edit bag</a></div>
+      <div id="items"></div>
+      <hr class="divider" style="margin-top:25px">
+      <div class="promo"><input class="input" placeholder="Gift card or discount code" aria-label="Discount code"><button type="button">Apply</button></div>
+      <div class="lines">
+        <div><span>Subtotal</span><span id="sub">$58.00</span></div>
+        <div><span id="ship-label">Local delivery</span><span id="ship">$6.00</span></div>
+        <div><span>Estimated tax (8%)</span><span id="tax">$5.12</span></div>
+      </div>
+      <hr class="divider">
+      <div class="grand"><span class="serif">Total</span><span><small>USD</small><b id="total">$69.12</b></span></div>
+      <div style="font-size:12px;font-weight:500" id="free-msg">You’re $17 away from free delivery.</div>
+      <div class="bar"><i id="bar" style="width:77%"></i></div>
+      <div class="muted" style="font-size:11px">Free local delivery on orders $75+</div>
+    </div>
+    <div class="help" style="padding-left:28px">
+      <h4><svg class="icon" viewBox="0 0 24 24"><rect x="5" y="10" width="14" height="11" rx="1.5"/><path d="M8 10V7a4 4 0 0 1 8 0v3M12 14v3"/></svg>A safe home for your details.</h4>
+      <p class="muted" style="font-size:12px;margin-top:16px">Encrypted payments. Freshly baked peace of mind.</p>
+      <h5>Need a hand with your order?</h5>
+      <p class="muted" style="font-size:13px;line-height:17px">hello@veloura.com<br>We’re here daily, 8am–5pm</p>
+    </div>
+  </aside>
+</main>
+
+<footer class="foot-light" style="padding:28px 0">
+  <div class="wrap muted" style="font-size:12px">
+    <div style="line-height:26px">By placing your order, you agree to our Terms &amp; cancellation policy.<br>Questions? We’re happy to help.</div>
+    <div class="row"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Returns &amp; cancellations</a></div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="app.js"></script>
+<script>
+  const money = n => "$" + n.toFixed(2);
+  const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
+  // Empty bag → show the sample cake from the design.
+  let bag = readBag();
+  if (!bag.length) bag = [{ name: "The cherry on top", size: "6-inch", serves: "8–10", sponge: "Vanilla bean", filling: "strawberry",
+                            frosting: "Rosy vanilla buttercream", message: "Happy birthday, Maya!", price: 58 }];
+
+  document.getElementById("items").innerHTML = bag.map(i => `
+    <div class="item" style="margin-bottom:18px">
+      <div class="ph"></div>
+      <div><h3>${esc(i.name)}</h3>
+        <p>${i.size ? `${esc(i.size)} · serves ${esc(i.serves)} · Qty 1` : "Qty 1"}</p>
+        ${i.sponge ? `<p>${esc(i.sponge)} + ${esc(i.filling)}<br>${esc(i.frosting)}</p>` : ""}
+        <div class="price">${money(i.price)}</div></div>
+    </div>
+    ${i.message ? `<div class="words"><span class="eyebrow">The finishing words</span>“${esc(i.message)}”</div>` : ""}`).join("");
+  document.getElementById("count-label").textContent = `Your order · ${bag.length} item${bag.length > 1 ? "s" : ""}`;
+
+  const f = document.getElementById("co");
+  function totals(){
+    const sub = bag.reduce((s, i) => s + i.price, 0);
+    const pickup = f.method.value === "pickup";
+    const ship = pickup || sub >= 75 ? 0 : 6;
+    const tax = Math.round((sub + ship) * 8) / 100;
+    const total = sub + ship + tax;
+    document.getElementById("sub").textContent = money(sub);
+    document.getElementById("ship-label").textContent = pickup ? "Bakery pickup" : "Local delivery";
+    document.getElementById("ship").textContent = ship ? money(ship) : "Free";
+    document.getElementById("tax").textContent = money(tax);
+    document.getElementById("total").textContent = money(total);
+    document.getElementById("place").innerHTML = `Place order · ${money(total)} &nbsp;→`;
+    document.getElementById("free-msg").textContent = sub >= 75 ? "You’ve unlocked free delivery ♥" : `You’re $${(75 - sub).toFixed(0)} away from free delivery.`;
+    document.getElementById("bar").style.width = Math.min(100, sub / 75 * 100) + "%";
+    document.getElementById("address").style.display = pickup ? "none" : "";
+    document.getElementById("when-label").textContent = pickup ? "Pickup date & time" : "Delivery date & time";
+    window.ScrollTrigger && ScrollTrigger.refresh();
+  }
+  f.addEventListener("change", totals);
+  totals();
+
+  // ponytail: demo only — no payment provider wired up; plug Stripe Elements in place of the card inputs.
+  f.addEventListener("submit", e => {
+    e.preventDefault();
+    if (!f.email.checkValidity() || !f.name.value.trim()) { (f.email.checkValidity() ? f.name : f.email).focus(); f.reportValidity(); return; }
+    writeBag([]);
+    f.innerHTML = `<h1>Thank you, ${esc(f.name.value.split(" ")[0])}!</h1><p class="lead" style="margin-top:12px">Your order is in the oven. We’ve sent a confirmation to ${esc(f.email.value)}.</p><a href="index.html" class="btn btn-dark" style="margin-top:28px">Back to the bakery &nbsp;→</a>`;
+  });
+</script>
+</body>
+</html>

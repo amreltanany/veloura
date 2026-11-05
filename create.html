@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Create Your Cake</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,500&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="wrap nav">
+  <a href="index.html" class="logo">VÈLÔURÁ</a>
+  <nav class="nav-links">
+    <a href="index.html#bestsellers" style="font-weight:500">Shop bakery</a>
+    <a href="create.html" class="active" style="font-weight:500">Create a cake</a>
+    <a href="index.html#story">Our story</a>
+    <a href="index.html#visit">Visit us</a>
+  </nav>
+  <div class="nav-icons">
+    <a href="#" class="s" aria-label="Search"><svg class="icon" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M16 16l4.5 4.5"/></svg></a>
+    <a href="checkout.html"><svg class="icon" viewBox="0 0 24 24"><path d="M4 7h16l-1 14H5z"/><path d="M8 7a4 4 0 0 1 8 0"/></svg>Bag (<span data-bag-count>0</span>)</a>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="crumbs"><a href="index.html">Home</a> &nbsp; / &nbsp; Create your cake</div>
+  <h1 class="page-title fade">Made by us. Dreamed up by you.</h1>
+  <p class="lead fade">A cake as one-of-a-kind as your celebration. Start with a classic, then make every layer your own.</p>
+
+  <form class="create" id="cake">
+    <div>
+      <div class="ph reveal" role="img" aria-label="Pink cherry cake preview"><span class="pill">HANDMADE TO ORDER</span></div>
+      <h2>The cherry on top</h2>
+      <p class="lead">Vintage piping, rosy buttercream, and a cherry-finished crown. A little retro, a lot of joy.</p>
+      <h4 style="font-size:14px;font-weight:500;margin:33px 0 13px">A little note about your cake</h4>
+      <p class="note">Every cake is finished by hand, so each one is a little different from the photo — and entirely its own. That’s the charm of real baking.</p>
+      <p class="note" style="font-size:12px;margin-top:37px">Made in a kitchen that handles nuts, dairy, eggs &amp; gluten.</p>
+    </div>
+
+    <div>
+      <div class="eyebrow" style="font-size:11px">Your recipe, your way</div>
+
+      <div class="step-title">1. Pick your size</div>
+      <div class="opt-grid">
+        <label class="opt"><input type="radio" name="size" value="6-inch" data-price="48" data-serves="8–10" checked>6-inch<small>8–10 servings · $48</small></label>
+        <label class="opt"><input type="radio" name="size" value="8-inch" data-price="68" data-serves="12–16">8-inch<small>12–16 servings · $68</small></label>
+        <label class="opt"><input type="radio" name="size" value="10-inch" data-price="88" data-serves="20–24">10-inch<small>20–24 servings · $88</small></label>
+      </div>
+
+      <div class="step-title">2. Choose your sponge</div>
+      <div class="opt-grid">
+        <label class="opt"><input type="radio" name="sponge" value="Vanilla bean" checked>Vanilla bean</label>
+        <label class="opt"><input type="radio" name="sponge" value="Chocolate">Chocolate</label>
+        <label class="opt"><input type="radio" name="sponge" value="Lemon">Lemon</label>
+      </div>
+
+      <div class="step-title">3. Add a little something</div>
+      <div class="opt-grid">
+        <label class="opt"><input type="radio" name="filling" value="strawberry" data-price="6" checked>Strawberry · +$6</label>
+        <label class="opt"><input type="radio" name="filling" value="chocolate" data-price="6">Chocolate · +$6</label>
+        <label class="opt"><input type="radio" name="filling" value="lemon curd" data-price="6">Lemon curd · +$6</label>
+      </div>
+
+      <div class="step-title">4. The finishing touch</div>
+      <select class="input" name="frosting" style="height:48px;font-size:13px" aria-label="Frosting">
+        <option value="Rosy vanilla buttercream" data-price="4" selected>Rosy vanilla buttercream + cherries · +$4</option>
+        <option value="Classic vanilla buttercream" data-price="0">Classic vanilla buttercream · included</option>
+        <option value="Chocolate ganache" data-price="5">Chocolate ganache drip · +$5</option>
+        <option value="Lemon cream cheese" data-price="4">Lemon cream cheese · +$4</option>
+      </select>
+
+      <div class="step-title">5. Make it work for you</div>
+      <div class="opt-grid">
+        <label class="opt"><input type="radio" name="diet" value="Classic recipe" data-price="0" checked>Classic recipe</label>
+        <label class="opt"><input type="radio" name="diet" value="Gluten-friendly" data-price="8">Gluten-friendly +$8</label>
+        <label class="opt"><input type="radio" name="diet" value="Egg-free" data-price="6">Egg-free +$6</label>
+      </div>
+      <p class="muted" style="font-size:11px;margin-top:12px">Dietary options are not suitable for severe allergies.</p>
+
+      <div class="step-title">6. Say it with cake <small>Optional · 25 characters max</small></div>
+      <div class="msg">
+        <input class="input" name="message" maxlength="25" value="Happy birthday, Maya!" style="height:50px" aria-label="Cake message">
+        <span class="count" id="count">21 / 25</span>
+      </div>
+
+      <hr class="divider" style="margin-top:27px">
+      <div class="total-row"><span style="font-size:16px;font-weight:500">Your cake total</span><span class="serif" id="total">$58.00</span></div>
+      <p class="muted" style="font-size:12px" id="breakdown">Base $48 + strawberry filling $6 + rosy finish $4</p>
+      <button class="btn btn-dark btn-block" style="margin-top:19px" id="add">Add to bag · $58.00 &nbsp;→</button>
+      <p class="muted" style="font-size:12px;text-align:center;margin-top:14px">Baked to order · Please allow at least 48 hours</p>
+    </div>
+  </form>
+</main>
+
+<footer class="foot-light">
+  <div class="wrap">
+    <div class="logo">VÈLÔURÁ</div>
+    <div style="font-size:13px">A little help? &nbsp;<a class="link-u" href="mailto:hello@veloura.com">hello@veloura.com</a></div>
+    <div class="row"><a href="#">Delivery &amp; pickup</a><a href="#">Allergen information</a><a href="#">FAQ</a></div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="app.js"></script>
+<script>
+  const f = document.getElementById("cake");
+  const money = n => "$" + n.toFixed(2);
+  function cake(){
+    const pick = n => f.querySelector(`[name=${n}]:checked`);
+    const size = pick("size"), fill = pick("filling"), diet = pick("diet"), fr = f.frosting.selectedOptions[0];
+    const parts = [["Base", +size.dataset.price], [fill.value + " filling", +fill.dataset.price],
+                   [fr.value.split(" ")[0].toLowerCase() + " finish", +fr.dataset.price], [diet.value.toLowerCase(), +diet.dataset.price]];
+    return { name: "The cherry on top", size: size.value, serves: size.dataset.serves, sponge: pick("sponge").value,
+             filling: fill.value, frosting: fr.value, diet: diet.value, message: f.message.value.trim(),
+             parts, price: parts.reduce((s, p) => s + p[1], 0) };
+  }
+  function render(){
+    const c = cake();
+    document.getElementById("total").textContent = money(c.price);
+    document.getElementById("add").innerHTML = `Add to bag · ${money(c.price)} &nbsp;→`;
+    document.getElementById("breakdown").textContent = c.parts.filter((p, i) => i === 0 || p[1]).map(p => `${p[0]} $${p[1]}`).join(" + ");
+    document.getElementById("count").textContent = `${f.message.value.length} / 25`;
+  }
+  f.addEventListener("input", render);
+  f.addEventListener("change", render);
+  f.addEventListener("submit", e => { e.preventDefault(); writeBag([...readBag(), cake()]); location.href = "checkout.html"; });
+  render();
+</script>
+</body>
+</html>
